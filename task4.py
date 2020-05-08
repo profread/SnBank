@@ -7,15 +7,15 @@ import pprint
 import time
 import os
 
-# 
+# rege function to generate random account number 
 regex = '^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$'
 
 
 #Home User Interface
 def userUI():
     print(
-        "\n-------------------------------------------------------WELCOME TO SNG BANK-------------------------------------------------------\n")
-    print("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< HOME PAGE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n")
+        "\n__________________ WELCOME TO SNG BANK__________________ \n")
+    print("__________________ HOME PAGE __________________ \n")
     print("Choose an option\n")
     print("1. STAFF LOGIN:")
     print("2. CLOSE APP")
@@ -31,7 +31,7 @@ def userUI():
 
 # sub menu return user to Homepage
 def uiSubMenu():
-    print("\n---------------- CHOOSE AN OPTION ------------------\n")
+    print("\n__________________ CHOOSE AN OPTION __________________ \n")
     print("1. Return to Home")
     print("2. Exit Program \n")
     ui_prompt = input("Reply: ")
@@ -42,9 +42,9 @@ def uiSubMenu():
     else:
         exit()
 
-# Handles staff login and verification
+# Handles staff login details and verification
 def employeeLogOn():
-    print("\n--------------------------LOG IN--------------------------")
+    print("\n__________________ LOG IN__________________ ")
     print("\n[[[[[[[[[[YOUR CREDENTIALS ARE SECURE]]]]]]]]]]\n")
     employeeUsername = input("Enter a username: ").lower()
     employeePassword = input("Enter password: ")
@@ -62,7 +62,7 @@ def employeeLogOn():
                 employeeData.close()
                 print("Not authorized!\n Wrong Login Credentials!!!")
                 print("\n-------------KINDLY CHOOSE AN OPTION-------------\n")
-                print("1. RETRY LOGIN ")
+                print("1. RETRY LOGIN? ")
                 print("2. RETURN HOME?")
                 ui_prompt = input("Reply: ")
                 if (ui_prompt == '1'):
@@ -75,9 +75,9 @@ def employeeLogOn():
         else:
             employeeData.close()
             print("You are not authorized!\nWrong e-mail or Password!!!")
-            print("\n-------------KINDLY CHOOSE WHAT NEXT-------------\n")
-            print("1. Do you want to attempt the log in again?")
-            print("2. Do you want to return to home page?")
+            print("\n-------------CHOOSE AN OPTION-------------\n")
+            print("1. Atempt Login Again?")
+            print("2. Return TO HOMEPAGE?")
             ui_prompt = input("Reply: ")
             if (ui_prompt == '1'):
                 employeeLogOn()
@@ -100,8 +100,8 @@ def staffPage(userName, name):
     sessionLogFile.close()
     print(f"\n Welcome back {name}!") #\nHow may i help?
     print("\n-------------KINDLY CHOOSE AN OPTION -------------\n")
-    print("1. Create new bank account")
-    print("2. Check account details")
+    print("1. Create a new bank account")
+    print("2. Check Your account details")
     print("3. Logout\n")
     ui_prompt = input("Reply: ")
     if (ui_prompt == '1'):
@@ -168,7 +168,7 @@ def checkAccountDetails(userName,name):
             staffPage(userName, name)
 
 
-# generates ran1dom number
+# generates random digits as user account number
 def generateAccontNumber():
     accountPrefix = ["00", "01"]
     size = 8
